@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+    <title>PrimaryExpressionsInJS</title>
+  </head>
+  <body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Primary Expressions In JS</h1>
+            <p class="lead">Basic keywords and general expressions in JavaScript.</p>
+            <hr class="my-4">
+            
+            <h4>this</h4>
+            <p>The this keyword refers to a special property of an execution context.</p>
+            <ul>JavaScript Demo: Expressions - this
+                <li>const test = {</li>
+                <li>&nbsp&nbsp prop: 42,</li>
+                <li>&nbsp&nbsp func: function() {</li>
+                <li>&nbsp&nbsp&nbsp&nbsp return this.prop;</li>
+                <li>&nbsp&nbsp },</li>
+                <li>};</li>
+                <li></li>
+                <li>console.log(test.func());</li>
+                <li>// expected output: 42</li>
+            </ul>
+            <hr>
+            <h4>function</h4>
+            <p>The function keyword defines a function expression.</p>
+            <ul>JavaScript Demo: Expressions - function expression
+                <li>const getRectArea = function(width, height) {</li>
+                <li>&nbsp&nbsp return width * height;</li>
+                <li>};</li>
+                <li></li>
+                <li>console.log(getRectArea(3, 4));</li>
+                <li>// expected output: 12</li>
+            </ul>
+            <hr>
+            <h4>class</h4>
+            <p>The class keyword defines a class expression.</p>
+            <ul>JavaScript Demo: Expressions - class expression
+                <li>const Rectangle = class {</li>
+                <li>&nbsp&nbsp constructor(height, width) {</li>
+                <li>&nbsp&nbsp&nbsp&nbsp this.height = height;</li>
+                <li>&nbsp&nbsp&nbsp&nbsp this.width = width;</li>
+                <li>&nbsp&nbsp   }</li>
+                <li>&nbsp&nbsp  area() {</li>
+                <li>&nbsp&nbsp&nbsp&nbsp return this.height * this.width;</li>
+                <li>&nbsp&nbsp  }</li>
+                <li>};</li>
+                <li></li>
+                <li>console.log(new Rectangle(5, 8).area());</li>
+                <li>// expected output: 40</li>
+            </ul>
+            <hr>
+            <h4>function*</h4>
+            <p>The function* keyword defines a generator function expression.</p>
+            <ul>JavaScript Demo: Expressions - function* expression 
+                <li>const foo = function*() {</li>
+                <li>&nbsp&nbsp   yield 'a';</li>
+                <li>&nbsp&nbsp yield 'b';</li>
+                <li>&nbsp&nbsp yield 'c';</li>
+                <li>};</li>
+                <li></li>
+                <li>let str = '';</li>
+                <li>for (const val of foo()) {</li>
+                <li>&nbsp&nbsp   str = str + val;</li>
+                <li>}</li>
+                <li></li>
+                <li>console.log(str);</li>
+                <li>// expected output: "abc"</li>
+            </ul>
+            <hr>
+            <h4>yield</h4>
+            <p>Pause and resume a generator function.</p>
+            <ul>JavaScript Demo: Expressions - yield
+                <li>function* foo(index) {</li>
+                <li>&nbsp&nbsp   while (index < 2) {</li>
+                <li>&nbsp&nbsp yield index;</li>
+                <li>&nbsp&nbsp index++;</li>
+                <li>&nbsp&nbsp   }</li>
+                <li>}</li>
+                <li></li>
+                <li>const iterator = foo(0);</li>
+                <li></li>
+                <li>console.log(iterator.next().value);</li>
+                <li>// expected output: 0</li>
+                <li></li>
+                <li>console.log(iterator.next().value);</li>
+                <li>// expected output: 1</li>
+            </ul>
+            <hr>
+            <h4>yield*</h4>
+            <p>Delegate to another generator function or iterable object.</p>
+            <ul>JavaScript Demo: Expressions - yield*
+                <li>function* func1() {</li>
+                <li>&nbsp&nbsp   yield 42;</li>
+                <li>}</li>
+                <li></li>
+                <li>function* func2() {</li>
+                <li>&nbsp&nbsp   yield* func1();</li>
+                <li>}</li>
+                <li></li>
+                <li>const iterator = func2();</li>
+                <li></li>
+                <li>console.log(iterator.next().value);</li>
+                <li>// expected output: 42</li>
+            </ul>
+            <hr>
+            <h4>async function</h4>
+            <p>The async function defines an async function expression.</p>
+            <ul>Syntax
+                <li>async function [name]([param1[, param2[, ..., paramN]]]) {</li>
+                <li>&nbsp&nbsp statements</li>
+                <li>}</li>
+            </ul>
+            <hr>
+            <h4>await</h4>
+            <p>Pause and resume an async function and wait for the promise's resolution/rejection.</p>
+            <ul>Syntax
+                <li>[rv] = await expression</li>
+            </ul>
+            <hr>
+            <h4>[]</h4>
+            <p>Array initializer/literal syntax.</p>
+            <ul>Create an Array
+                <li>let fruits = ['Apple', 'Banana']</li>
+                <li></li>
+                <li>console.log(fruits.length)</li>
+                <li>// 2</li>
+            </ul>
+            <hr>
+            <h4>{}</h4>
+            <p>Object initializer/literal syntax.</p>
+            <ul>JavaScript Demo: Expressions - Object initializer
+                <li>const object1 = { a: 'foo', b: 42, c: {} };</li>
+                <li></li>
+                <li>console.log(object1.a);</li>
+                <li>// expected output: "foo"</li>
+                <li></li>
+                <li>const a = 'foo';</li>
+                <li>const b = 42;</li>
+                <li>const c = {};</li>
+                <li>const object2 = { a: a, b: b, c: c };</li>
+                <li></li>
+                <li>console.log(object2.b);</li>
+                <li>// expected output: 42</li>
+                <li></li>
+                <li>const object3 = { a, b, c };</li>
+                <li></li>
+                <li>console.log(object3.a);</li>
+                <li>// expected output: "foo"</li>
+            </ul>
+            <hr>
+            <h4>/ab+c/i</h4>
+            <p>Regular expression literal syntax.</p>
+            <ul>The following three expressions create the same regular expression object:
+                <li>let re = /ab+c/i; // literal notation</li>
+                <li>let re = new RegExp('ab+c', 'i') // constructor with string pattern as first argument</li>
+                <li>let re = new RegExp(/ab+c/, 'i') // constructor with regular expression literal as first argument (Starting with ECMAScript 6)</li>
+            </ul>
+            <hr>
+            <h4>( )</h4>
+            <p>Grouping operator.</p>
+            <ul>JavaScript Demo: Expressions - Grouping operator
+                <li>console.log(1 + 2 * 3); // 1 + 6</li>
+                <li>// expected output: 7</li>
+                <li></li>
+                <li>console.log(1 + (2 * 3)); // 1 + 6</li>
+                <li>// expected output: 7</li>
+                <li></li>
+                <li>console.log((1 + 2) * 3); // 3 * 3</li>
+                <li>// expected output: 9</li>
+                <li></li>
+                <li>console.log(1 * 3 + 2 * 3); // 3 + 6</li>
+                <li>// expected output: 9</li>
+            </ul>
+            <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <a class="btn btn-primary btn-lg" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators" role="button">Learn more</a>
+          </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
